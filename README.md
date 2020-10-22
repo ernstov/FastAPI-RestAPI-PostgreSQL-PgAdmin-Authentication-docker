@@ -63,7 +63,7 @@ To get a local copy up and running follow these simple steps.
 Install Docker and docker-compose
 * Docker - Click [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) for installation steps for Ubuntu.
 * docker-compose - Click [here](https://docs.docker.com/compose/install) to Install by selecting Linux tab in the page.
-* Create a copy of `.env` file from `.env.template` and update all the parameters.
+* Create a copy of `api/.env` file from `api/.env.template` and update all the parameters.
 
 
 
@@ -86,9 +86,17 @@ docker-compose up -d # It brings up the all services in the docker-compose.yaml 
 ```sh
 docker ps # It gives the list of running containers with their ports
 ```
+```sh Output
+CONTAINER ID        IMAGE                                                             COMMAND                  CREATED             STATUS              PORTS                           NAMES
+2ab9e521b530        fastapi-restapi-postgresql-pgadmin-authentication-docker_server   "uvicorn main:app --…"   5 minutes ago       Up 5 minutes        0.0.0.0:9000->8000/tcp          api_service
 
-API - http://0.0.0.0:9000
-PgAdmin - http://0.0.0.0:5050
+57ecb3d87421        dpage/pgadmin4                                                    "/entrypoint.sh"         5 minutes ago       Up 5 minutes        443/tcp, 0.0.0.0:5050->80/tcp   pgadmin
+
+ab8487f8a0a7        postgres:12                                                       "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        0.0.0.0:5499->5432/tcp          postgres_db
+```
+#### Now API and PgAdmin can be accessed from 9000 and 5050, mentioned below
+* API - http://0.0.0.0:9000/docs
+* PgAdmin - http://0.0.0.0:5050
 
 ## Docker Commands for debugging
 

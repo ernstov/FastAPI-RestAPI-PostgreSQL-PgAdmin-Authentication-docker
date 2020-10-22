@@ -1,0 +1,36 @@
+[
+    {
+      "consultant_id": 5323,
+      "actual_start_date": "17-Jan-2017",
+      "draw_period_end_date": "31-Jan-2017",
+      "original_compl_date": "29-Jun-2018",
+      "invoice_raised": 0.0258107926522793,
+      "starting_hard_cost_budget": 8660012,
+      "starting_hard_cost_conting_remaining": 412382,
+      "hard_cost_remaining": 8452171,
+      "owner_hard_cost_conting_remaining": 412382,
+      "pending_change_orders": 0,
+      "approved_changes": 0,
+      "additional_owner_equity_contributed": 0,
+      "cumulative_retained_amt": 5036.7,
+      "revised_owner_gc_contract_sum": 8247630.86,
+      "budget_surplus_or_shortfall_based_on_pco": 412381.54
+    },
+    {
+      "consultant_id": 5323,
+      "actual_start_date": "17-Jan-2017",
+      "draw_period_end_date": "28-Feb-2017",
+      "original_compl_date": "29-Jun-2018",
+      "invoice_raised": 0.0398553846043493,
+      "starting_hard_cost_budget": 8660012,
+      "starting_hard_cost_conting_remaining": 412382,
+      "hard_cost_remaining": 8347920,
+      "owner_hard_cost_conting_remaining": 412382,
+      "pending_change_orders": -21500,
+      "approved_changes": 0,
+      "additional_owner_equity_contributed": 0,
+      "cumulative_retained_amt": 16620.16,
+      "revised_owner_gc_contract_sum": 8247630.86,
+      "budget_surplus_or_shortfall_based_on_pco": 433881.54
+    }
+  ]
