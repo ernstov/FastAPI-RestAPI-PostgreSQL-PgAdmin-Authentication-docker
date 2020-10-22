@@ -33,6 +33,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [Useful Docker Commands](#docker-commands-for-debugging)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -98,7 +99,7 @@ ab8487f8a0a7        postgres:12                                                 
 * API - http://0.0.0.0:9000/docs
 * PgAdmin - http://0.0.0.0:5050
 
-## Docker Commands for debugging
+### Docker Commands for debugging
 
 ##### Bring up the all containers
 ```sh
