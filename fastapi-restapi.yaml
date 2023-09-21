@@ -1,0 +1,141 @@
+namespace: fastapi-restapi
+fastapi-restapi:
+  defines: runnable
+  metadata:
+    name: fastapi-restapi
+    description: This is a RestAPI that uses FastAPI and connects with PostgreSQL.
+    icon: https://emojiapi.dev/api/v1/snake.svg
+  containers:
+    fastapi-restapi:
+      build: .
+  services:
+    api-service-port:
+      container: fastapi-restapi
+      port: 8000
+      host-port: 8000
+      publish: false
+      protocol: TCP
+      description: Exposed port for the API service.
+  connections:
+    postgresql:
+      target: fastapi-restapi/db
+      service: postgres
+  variables:
+    domain:
+      env: DOMAIN
+      type: string
+      description: Domain used by the application
+      value: localhost
+    project-name:
+      env: PROJECT_NAME
+      type: string
+      description: Name of the project
+      value: API docs
+    secret-key:
+      env: SECRET_KEY
+      type: string
+      description: Secret encryption key for the app
+      value: '!!!SETME!!!'
+    first-superuser:
+      env: FIRST_SUPERUSER
+      type: string
+      description: Email for the first superuser
+      value: '!!!SETME!!!'
+    first-superuser-password:
+      env: FIRST_SUPERUSER_PASSWORD
+      type: string
+      description: Password for the first superuser
+      value: '!!!SETME!!!'
+    smtp-tls:
+      env: SMTP_TLS
+      type: string
+      description: Defines if SMTP should use TLS
+      value: 'true'
+    smtp-port:
+      env: SMTP_PORT
+      type: int
+      description: SMTP port
+      value: 25
+    smtp-host:
+      env: SMTP_HOST
+      type: string
+      description: SMTP host URL
+      value: '!!!SETME!!!'
+    smtp-user:
+      env: SMTP_USER
+      type: string
+      description: SMTP account username
+      value: '!!!SETME!!!'
+    smtp-password:
+      env: SMTP_PASSWORD
+      type: string
+      description: SMTP account password
+      value: '!!!SETME!!!'
+    emails-from-email:
+      env: EMAILS_FROM_EMAIL
+      type: string
+      description: Default sender email for outgoing emails
+      value: '!!!SETME!!!'
+    users-open-registration:
+      env: USERS_OPEN_REGISTRATION
+      type: string
+      description: Defines if users registration is open
+      value: 'false'
+    server-name:
+      env: SERVER_NAME
+      type: string
+      description: Name of the server
+      value: API
+    server-host:
+      env: SERVER_HOST
+      type: string
+      description: Host URL of the server
+      value: http://localhost:8900
+    postgres-user:
+      env: POSTGRES_USER
+      type: string
+      description: PostgreSQL database username
+      value: '!!!SETME!!!'
+    postgres-password:
+      env: POSTGRES_PASSWORD
+      type: string
+      description: PostgreSQL database password
+      value: '!!!SETME!!!'
+    postgres-db:
+      env: POSTGRES_DB
+      type: string
+      description: PostgreSQL database name
+      value: '!!!SETME!!!'
+    postgres-port:
+      env: POSTGRES_PORT
+      type: int
+      description: PostgreSQL listening port
+      value: <- connection-port("postgresql")
+    postgres-server:
+      env: POSTGRES_SERVER
+      type: string
+      description: PostgreSQL server URL
+      value: <- connection-hostname("postgresql")
+    pgadmin-default-email:
+      env: PGADMIN_DEFAULT_EMAIL
+      type: string
+      description: Default email for PgAdmin
+      value: '!!!SETME!!!'
+    pgadmin-default-password:
+      env: PGADMIN_DEFAULT_PASSWORD
+      type: string
+      description: Default password for PgAdmin
+      value: '!!!SETME!!!'
+    sentry-dsn:
+      env: SENTRY_DSN
+      type: string
+      description: DSN for the Sentry service
+      value: '!!!SETME!!!'
+db:
+  defines: runnable
+  inherits: postgresql/db
+stack:
+  defines: group
+  runnable-list:
+    - fastapi-restapi/fastapi-restapi
+    - fastapi-restapi/db
